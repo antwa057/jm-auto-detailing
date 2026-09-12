@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Book Now | J&M Auto Care & Detailing</title>
-<meta name="description" content="Book your car detailing appointment online with J&M Auto Care & Detailing in Dieppe/Moncton, NB. Instant confirmation, no phone call required.">
+<meta name="description" content="Book your car detailing appointment online with J&M Auto Care & Detailing in Moncton, NB. Instant confirmation, no phone call required.">
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
 </head>
@@ -21,7 +21,7 @@
       <a href="contact.html">Contact</a>
     </nav>
     <a href="booking.html" class="btn btn-primary nav-cta">Book Now</a>
-    <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
+    <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
   </div>
 </header>
 
@@ -29,7 +29,7 @@
   <div class="container">
     <p class="eyebrow">Instant Online Booking</p>
     <h1>Book Your Detail</h1>
-    <p class="hero-sub">Fill in the form below — we get an email the moment you submit, and we'll confirm your appointment by phone or email within one business day.</p>
+    <p class="hero-sub">Fill in the form below &mdash; we get an email the moment you submit, and we'll confirm your appointment by phone or email within one business day.</p>
   </div>
 </section>
 
@@ -39,7 +39,7 @@
     <form id="bookingForm" class="booking-form">
       <!-- Web3Forms delivers this submission straight to J&M's inbox. Replace YOUR_ACCESS_KEY_HERE with the free key from web3forms.com -->
       <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
-      <input type="hidden" name="subject" value="New Booking Request — J&M Auto Care & Detailing">
+      <input type="hidden" name="subject" value="New Booking Request - J&M Auto Care & Detailing">
       <input type="hidden" name="from_name" value="J&M Booking Form">
       <input type="checkbox" name="botcheck" class="hidden" style="display:none;">
 
@@ -73,32 +73,20 @@
           <label for="package">Package *</label>
           <select id="package" name="Package" required>
             <option value="">Select...</option>
-            <option value="Bronze - Easy Wash" data-price="49.99">Bronze — Easy Wash ($49.99)</option>
-            <option value="Silver - Interior Refresh" data-price="99.99">Silver — Interior Refresh ($99.99 est.)</option>
-            <option value="Silver - Exterior Shine & Wax" data-price="89.99">Silver — Exterior Shine &amp; Wax ($89.99 est.)</option>
-            <option value="Gold - Full Detail" data-price="179.99">Gold — Full Detail ($179.99 est.)</option>
-            <option value="Platinum - Deluxe Package" data-price="249.99">Platinum — Deluxe Package ($249.99 est.)</option>
+            <option value="Quick Wash" data-price="10.99">Quick Wash ($10.99)</option>
+            <option value="Full Interior Detail" data-price="100">Full Interior Detail ($100)</option>
+            <option value="Premium Detail" data-price="160">Premium Detail ($160)</option>
           </select>
         </div>
 
         <div class="form-field full-width">
           <label>Add-Ons (optional)</label>
           <div class="checkbox-grid">
-            <label class="checkbox-item"><input type="checkbox" name="Add-On: Ceramic Coating" value="Ceramic Coating / Paint Protection (+$399.99)" data-addon-price="399.99"> Ceramic Coating / Paint Protection (+$399.99)</label>
-            <label class="checkbox-item"><input type="checkbox" name="Add-On: Odour Removal" value="Odour & Pet Hair Removal (+$89.99)" data-addon-price="89.99"> Odour &amp; Pet Hair Removal (+$89.99)</label>
-            <label class="checkbox-item"><input type="checkbox" name="Add-On: Engine Bay" value="Engine Bay Detail (+$39.99)" data-addon-price="39.99"> Engine Bay Detail (+$39.99)</label>
-            <label class="checkbox-item"><input type="checkbox" name="Add-On: Headlight Restoration" value="Headlight Restoration (+$59.99)" data-addon-price="59.99"> Headlight Restoration (+$59.99)</label>
+            <label class="checkbox-item"><input type="checkbox" id="odourAddon" name="Add-On: Odour & Pet Hair Removal" value="Odour & Pet Hair Removal"> Odour &amp; Pet Hair Removal (+$50 sedan / +$70 SUV)</label>
+            <label class="checkbox-item"><input type="checkbox" id="tireAddon" name="Add-On: Tire Change" value="Tire Change requested - contact for pricing"> Tire Change needed (we'll contact you with pricing)</label>
           </div>
         </div>
 
-        <div class="form-field">
-          <label for="location">Service Location *</label>
-          <select id="location" name="Service Location" required>
-            <option value="">Select...</option>
-            <option value="In-Shop (42 Brandon St, Moncton)" data-mobile="0">In-Shop — 42 Brandon St, Moncton</option>
-            <option value="Mobile (+$25 travel fee)" data-mobile="25">Mobile — I'll be in Dieppe/Moncton/Riverview (+$25)</option>
-          </select>
-        </div>
         <div class="form-field">
           <label for="date">Preferred Date *</label>
           <input type="date" id="date" name="Preferred Date" required>
@@ -107,19 +95,19 @@
           <label for="time">Preferred Time *</label>
           <input type="time" id="time" name="Preferred Time" required>
         </div>
-        <div class="form-field">
-          <label for="address">Address (if Mobile)</label>
-          <input type="text" id="address" name="Mobile Address" placeholder="Only needed for mobile service">
+
+        <div class="form-field full-width">
+          <p class="in-shop-note">All appointments take place in-shop at 42 Brandon St, Unit 3, Moncton, NB. We do not currently offer mobile detailing.</p>
         </div>
 
         <div class="form-field full-width">
           <label for="notes">Notes / Special Requests</label>
-          <textarea id="notes" name="Notes" rows="4" placeholder="Pet hair, stains, scratches, anything we should know..."></textarea>
+          <textarea id="notes" name="Notes" rows="4" placeholder="Stains, scratches, tire size for tire changes, anything we should know..."></textarea>
         </div>
 
         <div class="form-field full-width price-summary" id="priceSummary">
           <span>Estimated Total:</span> <strong id="estimatedTotal">$0.00</strong>
-          <p class="price-disclaimer">Final price confirmed at drop-off based on vehicle condition. This is an estimate only.</p>
+          <p class="price-disclaimer">Final price confirmed at drop-off based on vehicle condition. Tire change pricing is not included in this estimate.</p>
         </div>
       </div>
 
@@ -134,7 +122,7 @@
       <p>Or email <a href="mailto:jmautocare82@gmail.com">jmautocare82@gmail.com</a></p>
       <hr>
       <h4>Hours</h4>
-      <p>Mon – Sat: 8:00am – 6:00pm<br>Sunday: Closed</p>
+      <p>Mon &ndash; Sat: 8:00am &ndash; 6:00pm<br>Sunday: Closed</p>
       <hr>
       <h4>Location</h4>
       <p>42 Brandon St, Unit 3<br>Moncton, NB E1C 7E6</p>
@@ -147,7 +135,7 @@
   <div class="container footer-grid">
     <div>
       <a href="index.html" class="logo footer-logo">J<span>&M</span> <small>AUTO CARE &amp; DETAILING</small></a>
-      <p>Premium car detailing in Dieppe &amp; Moncton, New Brunswick.</p>
+      <p>Premium car detailing in Moncton, New Brunswick.</p>
     </div>
     <div>
       <h4>Quick Links</h4>
@@ -164,7 +152,7 @@
     </div>
     <div>
       <h4>Hours</h4>
-      <p>Mon – Sat: 8:00am – 6:00pm</p>
+      <p>Mon &ndash; Sat: 8:00am &ndash; 6:00pm</p>
       <p>Sunday: Closed</p>
     </div>
   </div>

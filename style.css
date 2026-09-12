@@ -60,12 +60,22 @@ img{max-width:100%;display:block;}
   padding:16px 24px;
 }
 .logo{
-  font-family:'Playfair Display',serif;
-  font-weight:800;font-size:1.3rem;color:var(--white);
-  display:flex;align-items:baseline;gap:6px;
+  display:flex;align-items:center;gap:12px;
 }
-.logo span{color:var(--gold);}
-.logo small{font-family:'Poppins',sans-serif;font-size:.62rem;letter-spacing:.1em;color:var(--grey);font-weight:600;}
+.logo-mark{
+  width:44px;height:44px;flex-shrink:0;
+  border:1.5px solid var(--gold);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;
+  font-weight:800;font-size:.95rem;
+  color:var(--gold);
+  background:rgba(212,175,55,.06);
+}
+.logo-text{display:flex;flex-direction:column;line-height:1.15;}
+.logo-title{font-family:'Playfair Display',serif;font-weight:800;font-size:1.05rem;color:var(--white);letter-spacing:.02em;}
+.logo-subtitle{font-family:'Poppins',sans-serif;font-size:.62rem;letter-spacing:.16em;color:var(--grey);font-weight:600;text-transform:uppercase;}
+.footer-logo .logo-title{color:var(--white);}
 .main-nav{display:flex;gap:2rem;}
 .main-nav a{color:var(--white);font-weight:500;font-size:.95rem;opacity:.85;transition:opacity .2s;}
 .main-nav a:hover,.main-nav a.active{opacity:1;color:var(--gold);}
@@ -182,6 +192,7 @@ img{max-width:100%;display:block;}
   font-family:'Poppins',sans-serif;font-size:.95rem;background:#fff;
 }
 .form-field input:focus,.form-field select:focus,.form-field textarea:focus{outline:2px solid var(--gold);border-color:var(--gold);}
+.form-field select:disabled{background:#f0f0ee;color:#999;cursor:not-allowed;}
 .checkbox-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;}
 .checkbox-item{display:flex;align-items:center;gap:.5rem;font-size:.88rem;font-weight:400;flex-direction:row;}
 .in-shop-note{background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.25);border-radius:8px;padding:.9rem 1.1rem;font-size:.85rem;color:#555;}

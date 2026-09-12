@@ -5,7 +5,7 @@ if (hamburger && mainNav) {
   hamburger.addEventListener('click', () => mainNav.classList.toggle('open'));
 }
 
-// ---------- Booking page: live price estimate + Web3Forms submission ----------
+// ---------- Booking page: dynamic pricing by vehicle type + Web3Forms submission ----------
 const bookingForm = document.getElementById('bookingForm');
 if (bookingForm) {
   const packageSelect = document.getElementById('package');
@@ -13,9 +13,36 @@ if (bookingForm) {
   const odourAddon = document.getElementById('odourAddon');
   const estimatedTotalEl = document.getElementById('estimatedTotal');
 
-  function isSUV() {
-    const vtOption = vehicleTypeSelect.options[vehicleTypeSelect.selectedIndex];
-    return !!(vtOption && vtOption.value === 'SUV/Truck/Minivan');
+  const PRICING = {
+    'Quick Wash': { Sedan: 10.99, SUV: 20 },
+    'Full Interior Detail': { Sedan: 100, SUV: 120 },
+    'Premium Detail': { Sedan: 160, SUV: 180 }
+  };
+
+  function formatPrice(p) {
+    return p % 1 === 0 ? '$' + p : '$' + p.toFixed(2);
+  }
+
+  function currentSizeKey() {
+    return vehicleTypeSelect.value === 'SUV/Truck/Minivan' ? 'SUV' : 'Sedan';
+  }
+
+  function refreshPackageOptions() {
+    const hasVehicleType = !!vehicleTypeSelect.value;
+    const sizeKey = currentSizeKey();
+
+    Array.from(packageSelect.options).forEach(opt => {
+      if (!opt.value) {
+        opt.textContent = hasVehicleType ? 'Select a package...' : 'Select vehicle type first...';
+        return;
+      }
+      const price = PRICING[opt.value][sizeKey];
+      opt.dataset.price = price;
+      opt.textContent = `${opt.value} (${formatPrice(price)})`;
+    });
+
+    packageSelect.disabled = !hasVehicleType;
+    recalcTotal();
   }
 
   function recalcTotal() {
@@ -26,22 +53,19 @@ if (bookingForm) {
       total += parseFloat(pkgOption.dataset.price);
     }
 
-    const vtOption = vehicleTypeSelect.options[vehicleTypeSelect.selectedIndex];
-    if (vtOption && vtOption.dataset.upcharge) {
-      total += parseFloat(vtOption.dataset.upcharge);
-    }
-
     if (odourAddon && odourAddon.checked) {
-      total += isSUV() ? 70 : 50;
+      total += currentSizeKey() === 'SUV' ? 70 : 50;
     }
 
     estimatedTotalEl.textContent = '$' + total.toFixed(2);
   }
 
-  [packageSelect, vehicleTypeSelect].forEach(el => {
-    if (el) el.addEventListener('change', recalcTotal);
-  });
+  vehicleTypeSelect.addEventListener('change', refreshPackageOptions);
+  packageSelect.addEventListener('change', recalcTotal);
   if (odourAddon) odourAddon.addEventListener('change', recalcTotal);
+
+  packageSelect.disabled = true;
+  refreshPackageOptions();
 
   bookingForm.addEventListener('submit', async function (e) {
     e.preventDefault();
@@ -75,7 +99,8 @@ if (bookingForm) {
         statusEl.textContent = "Thank you! Your booking request has been sent - we will confirm shortly.";
         statusEl.className = 'form-status success';
         bookingForm.reset();
-        estimatedTotalEl.textContent = '$0.00';
+        packageSelect.disabled = true;
+        refreshPackageOptions();
       } else {
         statusEl.textContent = 'Something went wrong sending your request. Please call (506) 260-8990 instead.';
         statusEl.className = 'form-status error';

@@ -60,9 +60,7 @@ img{max-width:100%;display:block;}
   display:flex;align-items:center;justify-content:space-between;
   padding:16px 24px;
 }
-.logo{
-  display:flex;align-items:center;gap:12px;
-}
+.logo{display:flex;align-items:center;gap:12px;}
 .logo-mark{
   width:44px;height:44px;flex-shrink:0;
   border:1.5px solid var(--gold);
@@ -138,9 +136,13 @@ img{max-width:100%;display:block;}
   padding:2rem;
   position:relative;
   transition:transform .25s ease, box-shadow .25s ease;
+  display:block;
 }
 .service-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);}
 .service-card.featured{border:2px solid var(--gold);}
+.service-card-link{cursor:pointer;color:inherit;}
+.service-card-link:hover{border-color:var(--gold);}
+.card-cta{display:inline-block;margin-top:1rem;color:var(--gold);font-weight:700;font-size:.88rem;}
 .card-badge{
   width:52px;height:52px;
   border:1.5px solid var(--gold);
@@ -182,6 +184,19 @@ img{max-width:100%;display:block;}
 .tag{background:var(--gold);color:var(--charcoal);font-size:.65rem;padding:3px 10px;border-radius:999px;margin-left:8px;text-transform:uppercase;font-weight:700;}
 .mobile-note{background:var(--charcoal-2);color:var(--white);border-radius:var(--radius);padding:1.8rem;}
 .mobile-note h3{color:var(--gold);margin-bottom:.5rem;}
+
+/* Service type toggle (booking page) */
+.service-toggle{display:flex;gap:1rem;margin-bottom:2.5rem;flex-wrap:wrap;}
+.toggle-btn{
+  flex:1;min-width:220px;padding:16px 20px;border-radius:12px;
+  border:2px solid #e6e6e2;background:var(--white);
+  font-weight:600;font-size:1rem;cursor:pointer;
+  transition:all .2s ease;color:var(--charcoal);
+}
+.toggle-btn.active{border-color:var(--gold);background:rgba(212,175,55,.08);color:var(--charcoal);}
+.toggle-btn:hover{border-color:var(--gold);}
+.service-panel{display:block;}
+
 .booking-layout{display:grid;grid-template-columns:2.2fr 1fr;gap:2.5rem;align-items:start;}
 .booking-form{background:var(--white);border:1px solid #e6e6e2;border-radius:var(--radius);padding:2rem;}
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;}
@@ -216,6 +231,25 @@ img{max-width:100%;display:block;}
 .booking-sidebar hr{border:none;border-top:1px solid rgba(255,255,255,.15);margin:1.2rem 0;}
 .sidebar-phone a{font-size:1.3rem;color:var(--gold);font-weight:700;}
 @media(max-width:900px){.booking-layout{grid-template-columns:1fr;}.form-grid{grid-template-columns:1fr;}}
+
+/* Quote form (bodywork page) with step fieldsets */
+.quote-form{max-width:820px;margin:0 auto;background:var(--white);border-radius:var(--radius);padding:2.5rem;color:var(--charcoal);}
+.quote-step{border:none;border-top:1px solid #e6e6e2;padding:1.8rem 0 0;margin:0 0 1.8rem;}
+.quote-step:first-of-type{border-top:none;padding-top:0;}
+.quote-step legend{
+  display:flex;align-items:center;gap:.6rem;
+  font-family:'Playfair Display',serif;font-weight:800;font-size:1.15rem;
+  margin-bottom:1.2rem;padding:0;color:var(--charcoal);
+}
+.step-num{
+  width:30px;height:30px;border-radius:50%;
+  background:var(--gold);color:var(--charcoal);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.95rem;font-weight:800;flex-shrink:0;
+}
+.step-optional{font-size:.75rem;font-weight:500;color:var(--grey);text-transform:none;letter-spacing:0;font-family:'Poppins',sans-serif;}
+.quote-form button{margin-top:0;}
+
 .about-content{max-width:900px;margin:0 auto;}
 .about-content p{margin-bottom:1.2rem;color:#3a3a3a;}
 .contact-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:2.5rem;align-items:start;}

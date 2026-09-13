@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Book Now | J&M Auto Body & Detail</title>
-<meta name="description" content="Book your car detailing appointment online with J&M Auto Body & Detail in Moncton, NB. Instant confirmation, no phone call required.">
+<meta name="description" content="Book a detailing appointment or request a bodywork/collision quote with J&M Auto Body & Detail in Moncton, NB.">
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
 </head>
@@ -35,105 +35,122 @@
 <section class="page-hero">
   <div class="container">
     <p class="eyebrow">Instant Online Booking</p>
-    <h1>Book Your Detail</h1>
-    <p class="hero-sub">Fill in the form below &mdash; we get an email the moment you submit, and we'll confirm your appointment by phone or email within one business day.</p>
+    <h1>Book Your Appointment</h1>
+    <p class="hero-sub">First, tell us what you need &mdash; detailing or bodywork/collision &mdash; then fill in a few details. We get an email the moment you submit.</p>
   </div>
 </section>
 
 <section class="section">
-  <div class="container booking-layout">
+  <div class="container">
 
-    <form id="bookingForm" class="booking-form">
-      <!-- Web3Forms delivers this submission straight to J&M's inbox. Replace YOUR_ACCESS_KEY_HERE with the free key from web3forms.com -->
-      <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
-      <input type="hidden" name="subject" value="New Booking Request - J&M Auto Body & Detail">
-      <input type="hidden" name="from_name" value="J&M Booking Form">
-      <input type="checkbox" name="botcheck" class="hidden" style="display:none;">
+    <div class="service-toggle">
+      <button type="button" class="toggle-btn active" id="toggleDetailing" data-target="detailingPanel">Detailing Service</button>
+      <button type="button" class="toggle-btn" id="toggleBodywork" data-target="bodyworkPanel">Bodywork &amp; Collision</button>
+    </div>
 
-      <div class="form-grid">
-        <div class="form-field">
-          <label for="fullName">Full Name *</label>
-          <input type="text" id="fullName" name="Full Name" required>
-        </div>
-        <div class="form-field">
-          <label for="phone">Phone Number *</label>
-          <input type="tel" id="phone" name="Phone" required>
-        </div>
-        <div class="form-field">
-          <label for="email">Email Address (optional)</label>
-          <input type="email" id="email" name="email">
-        </div>
-        <div class="form-field">
-          <label for="vehicle">Vehicle (Year / Make / Model) *</label>
-          <input type="text" id="vehicle" name="Vehicle" placeholder="e.g. 2019 Honda CR-V" required>
-        </div>
+    <div id="detailingPanel" class="service-panel booking-layout">
 
-        <div class="form-field">
-          <label for="vehicleType">Vehicle Type *</label>
-          <select id="vehicleType" name="Vehicle Type" required>
-            <option value="">Select...</option>
-            <option value="Sedan/Coupe">Sedan / Coupe</option>
-            <option value="SUV/Truck/Minivan">SUV / Truck / Minivan</option>
-          </select>
-        </div>
-        <div class="form-field">
-          <label for="package">Package *</label>
-          <select id="package" name="Package" required>
-            <option value="">Select vehicle type first...</option>
-            <option value="Quick Wash">Quick Wash</option>
-            <option value="Full Interior Detail">Full Interior Detail</option>
-            <option value="Premium Detail">Premium Detail</option>
-          </select>
-        </div>
+      <form id="bookingForm" class="booking-form">
+        <!-- Web3Forms delivers this submission straight to J&M's inbox. Replace YOUR_ACCESS_KEY_HERE with the free key from web3forms.com -->
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+        <input type="hidden" name="subject" value="New Booking Request - J&M Auto Body & Detail">
+        <input type="hidden" name="from_name" value="J&M Booking Form">
+        <input type="checkbox" name="botcheck" class="hidden" style="display:none;">
 
-        <div class="form-field full-width">
-          <label>Add-Ons (optional)</label>
-          <div class="checkbox-grid">
-            <label class="checkbox-item"><input type="checkbox" id="odourAddon" name="Add-On: Odour & Pet Hair Removal" value="Odour & Pet Hair Removal"> Odour &amp; Pet Hair Removal (+$50 sedan / +$70 SUV)</label>
-            <label class="checkbox-item"><input type="checkbox" id="tireAddon" name="Add-On: Tire Change" value="Tire Change requested - contact for pricing"> Tire Change needed (we'll contact you with pricing)</label>
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="fullName">Full Name *</label>
+            <input type="text" id="fullName" name="Full Name" required>
+          </div>
+          <div class="form-field">
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone" name="Phone" required>
+          </div>
+          <div class="form-field">
+            <label for="email">Email Address (optional)</label>
+            <input type="email" id="email" name="email">
+          </div>
+          <div class="form-field">
+            <label for="vehicle">Vehicle (Year / Make / Model) *</label>
+            <input type="text" id="vehicle" name="Vehicle" placeholder="e.g. 2019 Honda CR-V" required>
+          </div>
+
+          <div class="form-field">
+            <label for="vehicleType">Vehicle Type *</label>
+            <select id="vehicleType" name="Vehicle Type" required>
+              <option value="">Select...</option>
+              <option value="Sedan/Coupe">Sedan / Coupe</option>
+              <option value="SUV/Truck/Minivan">SUV / Truck / Minivan</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="package">Package *</label>
+            <select id="package" name="Package" required>
+              <option value="">Select vehicle type first...</option>
+              <option value="Quick Wash">Quick Wash</option>
+              <option value="Full Interior Detail">Full Interior Detail</option>
+              <option value="Premium Detail">Premium Detail</option>
+            </select>
+          </div>
+
+          <div class="form-field full-width">
+            <label>Add-Ons (optional)</label>
+            <div class="checkbox-grid">
+              <label class="checkbox-item"><input type="checkbox" id="odourAddon" name="Add-On: Odour & Pet Hair Removal" value="Odour & Pet Hair Removal"> Odour &amp; Pet Hair Removal (+$50 sedan / +$70 SUV)</label>
+              <label class="checkbox-item"><input type="checkbox" id="tireAddon" name="Add-On: Tire Change" value="Tire Change requested - contact for pricing"> Tire Change needed (we'll contact you with pricing)</label>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="date">Preferred Date *</label>
+            <input type="date" id="date" name="Preferred Date" required>
+          </div>
+          <div class="form-field">
+            <label for="time">Preferred Time *</label>
+            <input type="time" id="time" name="Preferred Time" required>
+          </div>
+
+          <div class="form-field full-width">
+            <p class="in-shop-note">All detailing appointments take place in-shop at 42 Brandon St, Unit 3, Moncton, NB, Mon&ndash;Sat only &mdash; we do not offer detailing on Sundays or mobile detailing. Need a Sunday appointment? <a href="bodywork.html" style="color:var(--gold);">We're open Sundays for bodywork &amp; collision</a>.</p>
+          </div>
+
+          <div class="form-field full-width">
+            <label for="notes">Notes / Special Requests</label>
+            <textarea id="notes" name="Notes" rows="4" placeholder="Stains, scratches, tire size for tire changes, anything we should know..."></textarea>
+          </div>
+
+          <div class="form-field full-width price-summary" id="priceSummary">
+            <span>Estimated Total:</span> <strong id="estimatedTotal">$0.00</strong>
+            <p class="price-disclaimer">Final price confirmed at drop-off based on vehicle condition. Tire change pricing is not included in this estimate.</p>
           </div>
         </div>
 
-        <div class="form-field">
-          <label for="date">Preferred Date *</label>
-          <input type="date" id="date" name="Preferred Date" required>
-        </div>
-        <div class="form-field">
-          <label for="time">Preferred Time *</label>
-          <input type="time" id="time" name="Preferred Time" required>
-        </div>
+        <button type="submit" class="btn btn-primary btn-lg btn-block" id="submitBtn">Confirm Booking Request</button>
+        <p id="formStatus" class="form-status" role="status"></p>
+      </form>
 
-        <div class="form-field full-width">
-          <p class="in-shop-note">All appointments take place in-shop at 42 Brandon St, Unit 3, Moncton, NB. We do not currently offer mobile detailing. Need bodywork or collision repair instead? <a href="bodywork.html" style="color:var(--gold);">Request a quote here</a>.</p>
-        </div>
+      <aside class="booking-sidebar">
+        <h3>Need help booking?</h3>
+        <p>Call or text us directly and we'll book you in over the phone.</p>
+        <p class="sidebar-phone"><a href="tel:+15062608990">(506) 260-8990</a></p>
+        <p>Or email <a href="mailto:jmautocare82@gmail.com">jmautocare82@gmail.com</a></p>
+        <hr>
+        <h4>Hours</h4>
+        <p>Mon &ndash; Sat: 8:00am &ndash; 6:00pm<br>Sunday: Bodywork &amp; Collision only</p>
+        <hr>
+        <h4>Location</h4>
+        <p>42 Brandon St, Unit 3<br>Moncton, NB E1C 7E6</p>
+      </aside>
 
-        <div class="form-field full-width">
-          <label for="notes">Notes / Special Requests</label>
-          <textarea id="notes" name="Notes" rows="4" placeholder="Stains, scratches, tire size for tire changes, anything we should know..."></textarea>
-        </div>
+    </div>
 
-        <div class="form-field full-width price-summary" id="priceSummary">
-          <span>Estimated Total:</span> <strong id="estimatedTotal">$0.00</strong>
-          <p class="price-disclaimer">Final price confirmed at drop-off based on vehicle condition. Tire change pricing is not included in this estimate.</p>
-        </div>
+    <div id="bodyworkPanel" class="service-panel" style="display:none;">
+      <div class="mobile-note center">
+        <h3>Bodywork &amp; Collision Requests</h3>
+        <p>Bodywork and collision quotes need photos of the damage, vehicle year/make/model, and a description of what happened &mdash; so we use a dedicated form for these. This is also where you'll find our Sunday availability.</p>
+        <a href="bodywork.html#quoteForm" class="btn btn-primary btn-lg" style="margin-top:1rem;">Go to Bodywork Quote Form</a>
       </div>
-
-      <button type="submit" class="btn btn-primary btn-lg btn-block" id="submitBtn">Confirm Booking Request</button>
-      <p id="formStatus" class="form-status" role="status"></p>
-    </form>
-
-    <aside class="booking-sidebar">
-      <h3>Need help booking?</h3>
-      <p>Call or text us directly and we'll book you in over the phone.</p>
-      <p class="sidebar-phone"><a href="tel:+15062608990">(506) 260-8990</a></p>
-      <p>Or email <a href="mailto:jmautocare82@gmail.com">jmautocare82@gmail.com</a></p>
-      <hr>
-      <h4>Hours</h4>
-      <p>Mon &ndash; Sat: 8:00am &ndash; 6:00pm<br>Sunday: Closed</p>
-      <hr>
-      <h4>Location</h4>
-      <p>42 Brandon St, Unit 3<br>Moncton, NB E1C 7E6</p>
-    </aside>
+    </div>
 
   </div>
 </section>
@@ -167,7 +184,7 @@
     <div>
       <h4>Hours</h4>
       <p>Mon &ndash; Sat: 8:00am &ndash; 6:00pm</p>
-      <p>Sunday: Closed</p>
+      <p>Sunday: Bodywork &amp; Collision only</p>
     </div>
   </div>
   <div class="container footer-bottom">

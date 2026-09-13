@@ -5,6 +5,28 @@ if (hamburger && mainNav) {
   hamburger.addEventListener('click', () => mainNav.classList.toggle('open'));
 }
 
+// ---------- Booking page: Detailing vs Bodywork toggle ----------
+const toggleDetailing = document.getElementById('toggleDetailing');
+const toggleBodywork = document.getElementById('toggleBodywork');
+if (toggleDetailing && toggleBodywork) {
+  const detailingPanel = document.getElementById('detailingPanel');
+  const bodyworkPanel = document.getElementById('bodyworkPanel');
+
+  toggleDetailing.addEventListener('click', () => {
+    toggleDetailing.classList.add('active');
+    toggleBodywork.classList.remove('active');
+    detailingPanel.style.display = 'grid';
+    bodyworkPanel.style.display = 'none';
+  });
+
+  toggleBodywork.addEventListener('click', () => {
+    toggleBodywork.classList.add('active');
+    toggleDetailing.classList.remove('active');
+    bodyworkPanel.style.display = 'block';
+    detailingPanel.style.display = 'none';
+  });
+}
+
 // ---------- Booking page: dynamic pricing by vehicle type + Web3Forms submission ----------
 const bookingForm = document.getElementById('bookingForm');
 if (bookingForm) {
@@ -115,13 +137,24 @@ if (bookingForm) {
   });
 }
 
-// ---------- Bodywork page: year/make/model dropdowns + Forminit submission with photo upload ----------
+// ---------- Bodywork page: clickable service cards, year/make/model dropdowns, Forminit submission ----------
 const bodyworkForm = document.getElementById('bodyworkForm');
 if (bodyworkForm) {
   const yearSelect = document.getElementById('bwYear');
   const makeSelect = document.getElementById('bwMake');
   const modelSelect = document.getElementById('bwModel');
   const otherModelWrap = document.getElementById('bwOtherModelWrap');
+
+  // Clicking a service card checks its matching checkbox and scrolls to the form
+  document.querySelectorAll('.service-card-link').forEach(card => {
+    card.addEventListener('click', function (e) {
+      e.preventDefault();
+      const service = card.dataset.service;
+      const checkbox = document.querySelector(`input[data-service-checkbox="${service}"]`);
+      if (checkbox) checkbox.checked = true;
+      document.getElementById('quoteForm').scrollIntoView({ behavior: 'smooth' });
+    });
+  });
 
   const MAKES_MODELS = {
     "Acura": ["ILX","TLX","TSX","RDX","MDX","ZDX","NSX","Integra","Other/Not Listed"],

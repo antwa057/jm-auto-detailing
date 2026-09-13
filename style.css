@@ -23,6 +23,7 @@ img{max-width:100%;display:block;}
 .center{text-align:center;}
 .section{padding:80px 0;}
 .alt-bg{background:var(--charcoal-2);color:var(--white);}
+.alt-bg .section-sub{color:var(--grey);}
 .eyebrow{
   color:var(--gold);
   font-weight:600;
@@ -76,12 +77,12 @@ img{max-width:100%;display:block;}
 .logo-title{font-family:'Playfair Display',serif;font-weight:800;font-size:1.05rem;color:var(--white);letter-spacing:.02em;}
 .logo-subtitle{font-family:'Poppins',sans-serif;font-size:.62rem;letter-spacing:.16em;color:var(--grey);font-weight:600;text-transform:uppercase;}
 .footer-logo .logo-title{color:var(--white);}
-.main-nav{display:flex;gap:2rem;}
-.main-nav a{color:var(--white);font-weight:500;font-size:.95rem;opacity:.85;transition:opacity .2s;}
+.main-nav{display:flex;gap:1.6rem;flex-wrap:wrap;}
+.main-nav a{color:var(--white);font-weight:500;font-size:.92rem;opacity:.85;transition:opacity .2s;white-space:nowrap;}
 .main-nav a:hover,.main-nav a.active{opacity:1;color:var(--gold);}
 .nav-cta{display:inline-block;}
 .hamburger{display:none;background:none;border:none;color:var(--white);font-size:1.6rem;cursor:pointer;}
-@media (max-width:860px){
+@media (max-width:1024px){
   .main-nav{
     position:absolute;top:100%;left:0;right:0;
     background:var(--charcoal);
@@ -89,7 +90,7 @@ img{max-width:100%;display:block;}
     max-height:0;overflow:hidden;
     transition:max-height .3s ease;
   }
-  .main-nav.open{max-height:400px;}
+  .main-nav.open{max-height:500px;}
   .main-nav a{padding:16px 24px;border-bottom:1px solid rgba(255,255,255,.06);}
   .nav-cta{display:none;}
   .hamburger{display:block;}
@@ -191,6 +192,7 @@ img{max-width:100%;display:block;}
   padding:12px 14px;border:1px solid #d8d8d3;border-radius:8px;
   font-family:'Poppins',sans-serif;font-size:.95rem;background:#fff;
 }
+.form-field input[type="file"]{padding:8px 4px;border:1px dashed #d8d8d3;}
 .form-field input:focus,.form-field select:focus,.form-field textarea:focus{outline:2px solid var(--gold);border-color:var(--gold);}
 .form-field select:disabled{background:#f0f0ee;color:#999;cursor:not-allowed;}
 .checkbox-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;}

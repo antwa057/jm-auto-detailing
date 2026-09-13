@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bodywork & Collision Repair | J&M Auto Body & Detail</title>
+<meta name="description" content="Collision repair, painting, paint correction & buffing, and rocker panel repair in Moncton, NB. Request a free quote online with photos of the damage.">
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">J&amp;M</span>
+      <span class="logo-text">
+        <span class="logo-title">AUTO BODY</span>
+        <span class="logo-subtitle">&amp; DETAIL</span>
+      </span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html">Home</a>
+      <a href="services.html">Detailing Pricing</a>
+      <a href="bodywork.html" class="active">Bodywork &amp; Collision</a>
+      <a href="booking.html">Book Now</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a href="bodywork.html" class="btn btn-primary nav-cta">Get a Quote</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Bodywork &amp; Collision Repair</p>
+    <h1>Precision Bodywork, Restored to Factory Standard</h1>
+    <p class="hero-sub">From minor scrapes to full collision repair, our team combines skilled craftsmanship with professional-grade equipment to bring your vehicle's body back to showroom condition.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <p class="eyebrow center">What We Offer</p>
+    <h2 class="center">Bodywork Services</h2>
+    <p class="section-sub center">Every repair is assessed individually and matched to your vehicle's exact paint code and panel specifications.</p>
+    <div class="cards-grid">
+      <div class="service-card">
+        <div class="card-badge">01</div>
+        <h3>Collision Repair</h3>
+        <p>Structural and cosmetic repair for accident damage, from dented panels to frame-related bodywork, restoring your vehicle's shape and safety.</p>
+      </div>
+      <div class="service-card">
+        <div class="card-badge">02</div>
+        <h3>Painting</h3>
+        <p>Full or partial vehicle painting with precise colour matching, so repaired panels blend seamlessly with the rest of your vehicle.</p>
+      </div>
+      <div class="service-card">
+        <div class="card-badge">03</div>
+        <h3>Paint Correction &amp; Buffing</h3>
+        <p>Removal of swirl marks, oxidation, and light scratches to restore depth and gloss to your existing paint &mdash; no repaint required.</p>
+      </div>
+      <div class="service-card">
+        <div class="card-badge">04</div>
+        <h3>Rocker Panel Repair</h3>
+        <p>Repair or replacement of rusted, dented, or corroded rocker panels, a common trouble spot for New Brunswick winters.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt-bg">
+  <div class="container">
+    <p class="eyebrow center">Request a Quote</p>
+    <h2 class="center">Tell Us About the Damage</h2>
+    <p class="section-sub center" style="color:var(--grey);">The more detail you give us &mdash; especially photos &mdash; the faster and more accurate your quote will be.</p>
+
+    <form id="bodyworkForm" class="booking-form" style="max-width:820px;margin:0 auto;" enctype="multipart/form-data">
+      <!-- Forminit delivers this submission (including photos) straight to J&M's inbox. Replace YOUR_FORMINIT_FORM_ID with the free form ID from forminit.com -->
+      <input type="hidden" name="fi-subject" value="New Bodywork/Collision Quote Request - J&M Auto Body & Detail">
+
+      <div class="form-grid">
+        <div class="form-field">
+          <label for="bwName">Full Name *</label>
+          <input type="text" id="bwName" name="fi-text-name" required>
+        </div>
+        <div class="form-field">
+          <label for="bwPhone">Phone Number *</label>
+          <input type="tel" id="bwPhone" name="fi-phone-phone" required>
+        </div>
+        <div class="form-field">
+          <label for="bwEmail">Email Address (optional)</label>
+          <input type="email" id="bwEmail" name="fi-email-email">
+        </div>
+        <div class="form-field">
+          <label for="bwYear">Vehicle Year *</label>
+          <select id="bwYear" name="fi-text-year" required>
+            <option value="">Select year...</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="bwMake">Vehicle Make *</label>
+          <select id="bwMake" name="fi-text-make" required>
+            <option value="">Select make...</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="bwModel">Vehicle Model *</label>
+          <select id="bwModel" name="fi-text-model" required disabled>
+            <option value="">Select make first...</option>
+          </select>
+        </div>
+        <div class="form-field full-width" id="bwOtherModelWrap" style="display:none;">
+          <label for="bwOtherModel">Please specify make/model</label>
+          <input type="text" id="bwOtherModel" name="fi-text-other_make_model" placeholder="e.g. 1998 Acura Vigor">
+        </div>
+
+        <div class="form-field full-width">
+          <label>Service(s) Needed (select all that apply)</label>
+          <div class="checkbox-grid">
+            <label class="checkbox-item"><input type="checkbox" name="fi-text-service_collision" value="Collision Repair"> Collision Repair</label>
+            <label class="checkbox-item"><input type="checkbox" name="fi-text-service_painting" value="Painting"> Painting</label>
+            <label class="checkbox-item"><input type="checkbox" name="fi-text-service_correction" value="Paint Correction & Buffing"> Paint Correction &amp; Buffing</label>
+            <label class="checkbox-item"><input type="checkbox" name="fi-text-service_rocker" value="Rocker Panel Repair"> Rocker Panel Repair</label>
+          </div>
+        </div>
+
+        <div class="form-field full-width">
+          <label for="bwDetails">Describe the Damage *</label>
+          <textarea id="bwDetails" name="fi-text-damage_details" rows="5" placeholder="Where is the damage located? How did it happen? Any prior repairs? The more detail, the more accurate your quote will be." required></textarea>
+        </div>
+
+        <div class="form-field full-width">
+          <label for="bwPhotos">Upload Photos of the Damage</label>
+          <input type="file" id="bwPhotos" name="fi-file-damage_photos" accept="image/*" multiple>
+          <p class="price-disclaimer">Multiple angles help us quote accurately &mdash; wide shots and close-ups of the damage are both useful.</p>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-lg btn-block" id="bwSubmitBtn">Request My Quote</button>
+      <p id="bwFormStatus" class="form-status" role="status"></p>
+    </form>
+  </div>
+</section>
+
+<section class="section cta-band">
+  <div class="container center">
+    <h2>Not Sure What You Need?</h2>
+    <p>Call or text us a photo and we'll help you figure out the right repair.</p>
+    <a href="tel:+15062608990" class="btn btn-primary btn-lg">(506) 260-8990</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <a href="index.html" class="logo footer-logo">
+        <span class="logo-mark">J&amp;M</span>
+        <span class="logo-text">
+          <span class="logo-title">AUTO BODY</span>
+          <span class="logo-subtitle">&amp; DETAIL</span>
+        </span>
+      </a>
+      <p>Premium auto detailing, bodywork &amp; collision repair in Moncton, New Brunswick.</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <a href="services.html">Detailing Pricing</a>
+      <a href="bodywork.html">Bodywork &amp; Collision</a>
+      <a href="booking.html">Book Now</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>42 Brandon St, Unit 3<br>Moncton, NB E1C 7E6</p>
+      <p><a href="mailto:jmautocare82@gmail.com">jmautocare82@gmail.com</a></p>
+      <p><a href="tel:+15062608990">(506) 260-8990</a></p>
+    </div>
+    <div>
+      <h4>Hours</h4>
+      <p>Mon &ndash; Sat: 8:00am &ndash; 6:00pm</p>
+      <p>Sunday: Closed</p>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>&copy; 2026 J&amp;M Auto Body &amp; Detail. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

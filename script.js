@@ -251,7 +251,7 @@ if (bodyworkForm) {
     const statusEl = document.getElementById('bwFormStatus');
     const submitBtn = document.getElementById('bwSubmitBtn');
 
-    const FORMINIT_ENDPOINT = 'https://forminit.com/f/YOUR_FORMINIT_FORM_ID';
+    const FORMINIT_ENDPOINT = 'https://forminit.com/f/cimg3ihn34k';
 
     if (FORMINIT_ENDPOINT.includes('YOUR_FORMINIT_FORM_ID')) {
       statusEl.textContent = 'This quote form is not fully set up yet - the site owner needs to add a free Forminit form ID.';
